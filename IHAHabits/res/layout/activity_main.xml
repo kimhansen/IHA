@@ -23,10 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/habitTitle"
         android:layout_centerHorizontal="true"
-        android:paddingTop="4dp"
+        android:paddingTop="10dp"
         android:text="-"
-        android:textColor="#f0f0f0f0"
-        android:textSize="30sp"
+        android:textColor="#c0f0f0f0"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <ListView
