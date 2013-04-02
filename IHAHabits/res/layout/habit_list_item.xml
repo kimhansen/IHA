@@ -10,7 +10,6 @@
         android:layout_alignParentLeft="true"
         android:paddingLeft="10dp"
         android:paddingTop="4dp"
-        android:text="Gratitude"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:height="36dp"

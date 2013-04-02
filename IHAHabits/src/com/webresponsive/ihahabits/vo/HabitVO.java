@@ -6,6 +6,8 @@ public class HabitVO
 
     private boolean isDone;
 
+    private double score;
+
     public String getName()
     {
         return name;
@@ -24,5 +26,15 @@ public class HabitVO
     public void setDone(boolean isDone)
     {
         this.isDone = isDone;
+    }
+
+    public double getScore()
+    {
+        return score;
+    }
+
+    public void setScore(double score)
+    {
+        this.score = score;
     }
 }

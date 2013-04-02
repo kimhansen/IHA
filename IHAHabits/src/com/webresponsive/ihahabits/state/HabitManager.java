@@ -16,6 +16,7 @@ public class HabitManager
     private ArrayList<HabitsVO> habits = null;
 
     private OnHabitsUpdatedListener onHabitsUpdatedListener;
+    private OnHabitsHistoryUpdatedListener onHabitsHistoryUpdatedListener;
 
     // Listener for habits updated
     public interface OnHabitsUpdatedListener
@@ -23,9 +24,19 @@ public class HabitManager
         public void onHabitsUpdated();
     }
 
+    public interface OnHabitsHistoryUpdatedListener
+    {
+        public void onHabitsHistoryUpdated();
+    }
+
     public void setOnHabitsUpdatedListener(OnHabitsUpdatedListener onHabitsUpdatedListener)
     {
         this.onHabitsUpdatedListener = onHabitsUpdatedListener;
+    }
+
+    public void setOnHabitsHistoryUpdatedListener(OnHabitsHistoryUpdatedListener onHabitsHistoryUpdatedListener)
+    {
+        this.onHabitsHistoryUpdatedListener = onHabitsHistoryUpdatedListener;
     }
 
     /**
@@ -44,13 +55,23 @@ public class HabitManager
     /**
      * Called to set habits. This will invoke the listener.
      */
-    public void setHabits(ArrayList<HabitsVO> habits)
+    public void setHabits(ArrayList<HabitsVO> habits, boolean today)
     {
         this.habits = habits;
 
-        if (onHabitsUpdatedListener != null)
+        if (today)
         {
-            onHabitsUpdatedListener.onHabitsUpdated();
+            if (onHabitsUpdatedListener != null)
+            {
+                onHabitsUpdatedListener.onHabitsUpdated();
+            }
+        }
+        else
+        {
+            if (onHabitsHistoryUpdatedListener != null)
+            {
+                onHabitsHistoryUpdatedListener.onHabitsHistoryUpdated();
+            }
         }
     }
 

@@ -5,11 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.joda.time.DateTime;
+
 import com.webresponsive.ihahabits.config.Constants;
 
 public abstract class DateHelper
 {
-    private static SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(Constants.DATE_FORMAT);
+    private static SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(Constants.COMPARE_DATE_FORMAT);
 
     /**
      * Format the date to a string date.
@@ -76,5 +78,32 @@ public abstract class DateHelper
         Calendar today = Calendar.getInstance();
         return (date.getDate() == today.get(Calendar.DATE)) && (date.getMonth() == today.get(Calendar.MONTH))
                 && ((date.getYear() + 1900) == today.get(Calendar.YEAR));
+    }
+
+    public static Date getToday()
+    {
+        DateTime dateTime = new DateTime();
+        return dateTime.toDate();
+    }
+
+    public static Date getWeekAgo()
+    {
+        DateTime dateTime = new DateTime();
+        dateTime = dateTime.minusDays(7);
+        return dateTime.toDate();
+    }
+
+    public static Date getMonthAgo()
+    {
+        DateTime dateTime = new DateTime();
+        dateTime = dateTime.minusMonths(1);
+        return dateTime.toDate();
+    }
+
+    public static Date get3MonthsAgo()
+    {
+        DateTime dateTime = new DateTime();
+        dateTime = dateTime.minusMonths(3);
+        return dateTime.toDate();
     }
 }
