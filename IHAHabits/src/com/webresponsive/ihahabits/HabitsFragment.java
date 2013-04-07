@@ -64,13 +64,12 @@ public class HabitsFragment extends Fragment implements OnHabitsUpdatedListener
 
     private void getTodaysHabits()
     {
-        Date today = DateHelper.getToday();
-        HabitService.getHabits(DateHelper.formatDate(today), null);
+        HabitService.getHabits(DateHelper.getTodayString(), null);
 
-        Log.d("MainActivity", "getting habits for today = " + DateHelper.formatDate(today));
+        Log.d("MainActivity", "getting habits for today = " + DateHelper.getTodayString());
         
         TextView date = (TextView) view.findViewById(R.id.habitDate);
-        date.setText(DateHelper.formatDate(today));
+        date.setText(DateHelper.getTodayString());
     }
 
     private void setupHabitList()
@@ -107,12 +106,11 @@ public class HabitsFragment extends Fragment implements OnHabitsUpdatedListener
         habitsVO.setLearnIsDone(habits.get(4).isDone());
         habitsVO.setFeelIsDone(habits.get(5).isDone());
 
-        Date today = DateHelper.getToday();
         String habitsObjectId = (todayHabits != null) ? todayHabits.getObjectId() : null;
-        HabitService.saveHabits(habitsVO, DateHelper.formatDate(today), habitsObjectId);
+        HabitService.saveHabits(habitsVO, DateHelper.getTodayString(), habitsObjectId);
 
         Log.d("MainActivity", "saving habitsVO = " + habitsVO);
-        Log.d("MainActivity", "date = " + DateHelper.formatDate(today));
+        Log.d("MainActivity", "date = " + DateHelper.getTodayString());
     }
 
     private ArrayList<HabitVO> getHabits()

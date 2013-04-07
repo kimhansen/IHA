@@ -2,7 +2,6 @@ package com.webresponsive.ihahabits.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.joda.time.DateTime;
@@ -48,38 +47,6 @@ public abstract class DateHelper
         return parsedDate;
     }
 
-    /**
-     * Parse the date coming from the database.
-     */
-    public static Date parseHabitDate(String dateString)
-    {
-        Date parsedDate = null;
-        if (dateString != null)
-        {
-            // FIXME
-            try
-            {
-                parsedDate = DATE_FORMATTER.parse(dateString.trim());
-            } catch (ParseException e)
-            {
-                e.printStackTrace();
-            }
-        }
-
-        return parsedDate;
-    }
-
-    /**
-     * Create a calendar with todays date and compare the date, month and year
-     * with the given date.
-     */
-    public static boolean isToday(Date date)
-    {
-        Calendar today = Calendar.getInstance();
-        return (date.getDate() == today.get(Calendar.DATE)) && (date.getMonth() == today.get(Calendar.MONTH))
-                && ((date.getYear() + 1900) == today.get(Calendar.YEAR));
-    }
-
     public static Date getToday()
     {
         DateTime dateTime = new DateTime();
@@ -105,5 +72,37 @@ public abstract class DateHelper
         DateTime dateTime = new DateTime();
         dateTime = dateTime.minusMonths(3);
         return dateTime.toDate();
+    }
+
+    public static String getTodayString()
+    {
+        Date today = DateHelper.getToday();
+
+        return formatDate(today);
+    }
+
+    public static String dayBefore(String dateString)
+    {
+        Date date = parseDate(dateString);
+        DateTime dateTime = new DateTime(date);
+        dateTime = dateTime.minusDays(1);
+
+        return formatDate(dateTime.toDate());
+    }
+
+    public static String dayAfter(String dateString)
+    {
+        Date date = parseDate(dateString);
+        DateTime dateTime = new DateTime(date);
+        dateTime = dateTime.plusDays(1);
+
+        return formatDate(dateTime.toDate());
+    }
+
+    public static boolean isToday(String dateString)
+    {
+        DateTime todayDateTime = new DateTime();
+
+        return dateString.equals(formatDate(todayDateTime.toDate()));
     }
 }

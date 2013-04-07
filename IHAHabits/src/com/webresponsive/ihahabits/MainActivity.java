@@ -44,12 +44,12 @@ public class MainActivity extends FragmentActivity
         viewPager.setAdapter(pageAdapter);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu)
+//    {
+//        getMenuInflater().inflate(R.menu.activity_main, menu);
+//        return true;
+//    }
 
     private void setupParse()
     {

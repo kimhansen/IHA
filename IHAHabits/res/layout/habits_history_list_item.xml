@@ -11,18 +11,42 @@
         android:paddingLeft="10dp"
         android:paddingTop="4dp"
         android:textColor="#ffffff"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/habitChain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingRight="8dp"
+        android:paddingTop="0dp"
+        android:textColor="#ccddff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+         />
+
+        <TextView
         android:id="@+id/habitScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:paddingRight="10dp"
-        android:paddingTop="4dp"
+        android:paddingRight="50dp"
+        android:paddingTop="2dp"
         android:textColor="#aaccff"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="10sp" />
+    
+    <TextView
+        android:id="@+id/habitMaxChain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/habitScore"
+        android:paddingRight="50dp"
+        android:paddingTop="0dp"
+        android:textColor="#aaccff"
+        android:textStyle="bold"
+        android:textSize="10sp" />
 
 </RelativeLayout>

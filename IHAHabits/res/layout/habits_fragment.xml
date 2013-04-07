@@ -11,9 +11,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingTop="60dp"
-        android:text="Healthy habits"
+        android:text="Habits"
         android:textColor="#ffffff"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView

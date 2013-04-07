@@ -8,6 +8,10 @@ public class HabitVO
 
     private double score;
 
+    private int maxChain;
+
+    private int chain;
+
     public String getName()
     {
         return name;
@@ -36,5 +40,25 @@ public class HabitVO
     public void setScore(double score)
     {
         this.score = score;
+    }
+
+    public int getMaxChain()
+    {
+        return maxChain;
+    }
+
+    public void setMaxChain(int maxChain)
+    {
+        this.maxChain = maxChain;
+    }
+
+    public int getChain()
+    {
+        return chain;
+    }
+
+    public void setChain(int chain)
+    {
+        this.chain = chain;
     }
 }

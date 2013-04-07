@@ -45,8 +45,7 @@ public class HabitService
                 {
                     Log.d("HabitService", "Successfully saved habit");
 
-                    Date today = DateHelper.getToday();
-                    getHabits(DateHelper.formatDate(today), null);
+                    getHabits(DateHelper.getTodayString(), null);
                 }
                 else
                 {

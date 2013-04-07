@@ -21,6 +21,8 @@ public class HabitsHistoryListAdapter extends BaseAdapter
     static class ViewHolder
     {
         public TextView habitNameText;
+        public TextView habitChainText;
+        public TextView habitMaxChainText;
         public TextView habitScoreText;
     }
 
@@ -44,6 +46,8 @@ public class HabitsHistoryListAdapter extends BaseAdapter
             rowView = inflater.inflate(R.layout.habits_history_list_item, null);
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.habitNameText = (TextView) rowView.findViewById(R.id.habitName);
+            viewHolder.habitChainText = (TextView) rowView.findViewById(R.id.habitChain);
+            viewHolder.habitMaxChainText = (TextView) rowView.findViewById(R.id.habitMaxChain);
             viewHolder.habitScoreText = (TextView) rowView.findViewById(R.id.habitScore);
             rowView.setTag(viewHolder);
         }
@@ -53,10 +57,14 @@ public class HabitsHistoryListAdapter extends BaseAdapter
         holder.habitNameText.setText(habitVO.getName());
 
         NumberFormat numberFormat = NumberFormat.getInstance();
-        numberFormat.setMinimumFractionDigits(2);
-        numberFormat.setMaximumFractionDigits(2);
+        numberFormat.setMinimumFractionDigits(0);
+        numberFormat.setMaximumFractionDigits(0);
 
+        holder.habitChainText.setText(habitVO.getChain() + "");
+        holder.habitMaxChainText.setText("Record: " + habitVO.getMaxChain());
         holder.habitScoreText.setText(numberFormat.format(habitVO.getScore()) + " %");
+
+//        holder.habitScoreText.setText("Chain: " + habitVO.getChain() + "  Max: " + habitVO.getMaxChain() + " - " + numberFormat.format(habitVO.getScore()) + " %");
 
         return rowView;
     }
